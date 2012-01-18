@@ -63,6 +63,7 @@ class MyGengoApi
 			$curl = curl_init();
 			curl_setopt($curl,CURLOPT_URL,$url . '?' . http_build_query($opts));
 			curl_setopt($curl,CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl,CURLOPT_USERAGENT, "myGengo eZ Publish Plugin; Version 1.0; https://github.com/meedidy/mygengo-ezpublish;");
 			curl_setopt($curl,CURLOPT_HTTPHEADER,array('Accept: application/json'));
 			curl_setopt($curl,CURLOPT_HEADER, false);
 
@@ -92,6 +93,7 @@ class MyGengoApi
 			curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 			curl_setopt($ch,CURLOPT_POST,true);
 			curl_setopt($ch,CURLOPT_POSTFIELDS,$opts);
+			curl_setopt($curl,CURLOPT_USERAGENT, "myGengo eZ Publish Plugin; Version 1.0; https://github.com/meedidy/mygengo-ezpublish;");
 			curl_setopt($ch,CURLOPT_HTTPHEADER,array('Accept: application/json'));
 			$ret = curl_exec($ch);
 			curl_close($ch);
@@ -108,6 +110,7 @@ class MyGengoApi
 			$sock = fsockopen($tgt['host'],80);
 			fputs($sock,'POST ' . $tgt['path'] . " HTTP/1.1\r\n" .
 				"Host: " . $tgt['host'] . "\r\n" .
+				"User-Agent: myGengo eZ Publish Plugin; Version 1.0; https://github.com/meedidy/mygengo-ezpublish;" .
 				"Accept: application/json\r\n" .
 				"Content-type: application/x-www-form-urlencoded\r\n" .
 				"Content-length: " . strlen($query) . "\r\n" .
@@ -140,6 +143,7 @@ class MyGengoApi
 			$curl = curl_init();
 			curl_setopt($curl,CURLOPT_URL,$url . '?' . http_build_query($opts));
 			curl_setopt($curl,CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl,CURLOPT_USERAGENT, "myGengo eZ Publish Plugin; Version 1.0; https://github.com/meedidy/mygengo-ezpublish;");
 			curl_setopt($curl,CURLOPT_HTTPHEADER,array('Accept: application/json'));
 			curl_setopt($curl,CURLOPT_HEADER, false);
 			curl_setopt($curl,CURLOPT_CUSTOMREQUEST, 'DELETE');
@@ -155,6 +159,7 @@ class MyGengoApi
 			$sock = fsockopen($tgt['host'],80);
 			fputs($sock,'DELETE ' . $tgt['path'] . '?' . http_build_query($opts) . " HTTP/1.1\r\n" .
 				"Host: " . $tgt['host'] . "\r\n" .
+				"User-Agent: myGengo eZ Publish Plugin; Version 1.0; https://github.com/meedidy/mygengo-ezpublish;" .
 				"Accept: application/json\r\n" .
 				"Pragma: no-cache\r\n" .
 				"Connection: close\r\n\r\n");
